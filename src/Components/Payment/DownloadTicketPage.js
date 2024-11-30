@@ -159,6 +159,7 @@ const DownloadTicketPage = () => {
     // Extract the txnId from the URL
     const params = new URLSearchParams(location.search);
     const txnId = params.get('txnId');
+    console.log(txnId)
 
     // Fetch the ticket data from the backend using the txnId
     useEffect(() => {
@@ -167,6 +168,7 @@ const DownloadTicketPage = () => {
                 const response = await axios.get(`http://localhost:8080/api/getTicketData?txnid=${txnId}`);
                 setTicketData(response.data);
                 setLoading(false);
+                console.log(ticketData)
             } catch (error) {
                 console.error('Error fetching ticket data:', error);
                 setLoading(false);
